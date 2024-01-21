@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BookingController extends ChangeNotifier {
+class BookingNewController extends ChangeNotifier {
   int selectedRadio = 1;
   String? selectedDropdownValue;
 

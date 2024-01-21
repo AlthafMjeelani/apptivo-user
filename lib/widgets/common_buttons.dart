@@ -52,6 +52,7 @@ class CommonOptionButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
+      height: 45,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           

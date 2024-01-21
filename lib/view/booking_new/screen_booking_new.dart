@@ -1,4 +1,5 @@
-import 'package:apptivo/controller/bookings/booking_controller.dart';
+
+import 'package:apptivo/controller/bokking_new/booking_new_controller.dart';
 import 'package:apptivo/helper/core/app_spacing.dart';
 import 'package:apptivo/helper/core/color_constant.dart';
 import 'package:apptivo/utility/utils.dart';
@@ -6,8 +7,8 @@ import 'package:apptivo/widgets/common_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ScreenBooking extends StatelessWidget {
-  const ScreenBooking({super.key});
+class ScreenBookingNew extends StatelessWidget {
+  const ScreenBookingNew({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class ScreenBooking extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 18)),
       ),
-      body: Consumer(builder: (context, BookingController controller, _) {
+      body: Consumer(builder: (context, BookingNewController controller, _) {
         return ListView(
           children: [
             Row(
@@ -34,30 +35,30 @@ class ScreenBooking extends StatelessWidget {
                     children: [
                       Radio(
                         value: 1,
-                        groupValue: Provider.of<BookingController>(context)
+                        groupValue: Provider.of<BookingNewController>(context)
                             .selectedRadio,
                         onChanged: (value) {
-                          Provider.of<BookingController>(context, listen: false)
+                          Provider.of<BookingNewController>(context, listen: false)
                               .setSelectedRadio(value ?? 1);
                         },
                       ),
                       const Text('1'),
                       Radio(
                         value: 2,
-                        groupValue: Provider.of<BookingController>(context)
+                        groupValue: Provider.of<BookingNewController>(context)
                             .selectedRadio,
                         onChanged: (value) {
-                          Provider.of<BookingController>(context, listen: false)
+                          Provider.of<BookingNewController>(context, listen: false)
                               .setSelectedRadio(value ?? 2);
                         },
                       ),
                       const Text('2'),
                       Radio(
                         value: 3,
-                        groupValue: Provider.of<BookingController>(context)
+                        groupValue: Provider.of<BookingNewController>(context)
                             .selectedRadio,
                         onChanged: (value) {
-                          Provider.of<BookingController>(context, listen: false)
+                          Provider.of<BookingNewController>(context, listen: false)
                               .setSelectedRadio(value ?? 3);
                         },
                       ),
@@ -69,10 +70,10 @@ class ScreenBooking extends StatelessWidget {
                 Expanded(
                   child: DropdownButton<String>(
                     underline: Container(),
-                    value: Provider.of<BookingController>(context)
+                    value: Provider.of<BookingNewController>(context)
                         .selectedDropdownValue,
                     onChanged: (value) {
-                      Provider.of<BookingController>(context, listen: false)
+                      Provider.of<BookingNewController>(context, listen: false)
                           .setSelectedDropdownValue(value!);
                     },
                     items: [
@@ -108,13 +109,19 @@ class ScreenBooking extends StatelessWidget {
               ),
             ),
             AppSpacing.ksizedBox10,
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12.0),
+              child: const TextField(
+                      decoration: InputDecoration(hintText: 'Past Tickets Here'),
+                    ),
+            ),
+                  AppSpacing.ksizedBox10,
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: Row(
                 children: [
                   const Expanded(
-                      child: TextField(
-                        keyboardType: TextInputType.number,
+                      child: TextField( keyboardType: TextInputType.number,
                     decoration: InputDecoration(hintText: 'Number'),
                   )),
                   AppSpacing.ksizedBoxW20,
@@ -258,7 +265,7 @@ class ScreenBooking extends StatelessWidget {
                             style: TextStyle(fontSize: 22),
                           )),
                         ],
-                        rows: List.generate(2, (index) {
+                        rows: List.generate(200, (index) {
                           return DataRow(cells: <DataCell>[
                             DataCell(Text(
                               '${index + 1}',

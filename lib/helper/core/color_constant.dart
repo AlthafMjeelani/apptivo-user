@@ -20,7 +20,7 @@ class AppColoring {
   static const kAppSecondaryColor = Color.fromARGB(255, 160, 173, 223);
   static const kAppBlueColor = Color(0xffF1F9FE);
   static const kAppWhiteColor = Colors.white;
-  static const primeryBorder = Color.fromARGB(255, 154, 220, 126);
+  static Color  primeryBorder =selctedThemeColor;
   static const buttonColor =Color.fromARGB(255, 155, 20, 20);
   static const redBgColor =Color.fromARGB(255, 155, 20, 20);
   static const greenBgColor =Color.fromARGB(255, 0, 116, 118);
